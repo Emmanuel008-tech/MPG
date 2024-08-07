@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void fcfs()
+    {
+        int head, a[20],i,distance,n,seektime;
+        printf("\n Enter the Head position: ");
+        scanf("%d",&head);
+        printf("\nEnter the number of disk requests: ");
+        scanf("%d",&n);
+        printf("Enter the disk requests: ");
+            for(i=1;i<=n;i++)
+            scanf("%d",&a[i]);
+            a[0]=head;
+            printf("*****FCFS DISK SCHEDULING******************\n");
+            for(i=0;i<n;i++)
+            {
+                distance= (a[i]>a[i+1])?a[i]-a[i+1]:a[i+1]-a[i];
+                printf("Head movement from %d to %d:%d\n",a[i],a[i+1],distance);
+                seektime=seektime+distance;
+            }
+            printf("Total seek time is : %d\n",seektime);
+
+
+    }
+    void main()
+    {
+        int ch;
+        do
+        {
+            printf("\n menu\n 1.FCFS\n 2.C-SCAN\n 3.SCAN\n4.EXIT\n\nEnter the choice= ");
+            scanf("%d",&ch);
+            switch(ch)
+            {
+                case 1: fcfs();
+                break;
+               // case 2: cscan();
+                break;
+                //case 3: scan();
+                break;
+                case 4: break;
+
+            }
+
+        } while (ch!=4);
+    }
